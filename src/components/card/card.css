@@ -1,3 +1,16 @@
+.card-cnt {
+  display: grid;
+  grid-template-columns: 250px 250px 250px;
+  grid-template-rows: auto;
+  grid-gap: 1rem;
+  background: #ede7f6;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(60, 58, 58);
+}
+
 .card-body {
   display: flex;
   flex-direction: column;
@@ -12,8 +25,8 @@
 
 .image {
   border-radius: 8px;
-  height: 65px;
-  width: 50px;
+  height: 250px;
+  width: 200px;
 }
 
 .card-title {
