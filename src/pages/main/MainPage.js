@@ -1,6 +1,7 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
+import Card from '../../components/card/Card';
 import axios from 'axios';
+import './mainpage.css';
 
 const MainPage = () => {
   const [data, setData] = useState('');
@@ -16,10 +17,25 @@ const MainPage = () => {
 
   return (
     <>
-      <div className='home-body'>
+      <div className='mainpage-body'>
+        <div className='navbar'>
+          <p className='nav-heading'>Movies App</p>
+          <div>
+            <input
+              type='search'
+              className='search-bar'
+              placeholder='search'
+              onChange={(e) => {}}
+            />
+          </div>
+        </div>
         {data &&
-          data?.map((item) => {
-            return <div key={item.results.id}></div>;
+          data?.data?.results.map((item) => {
+            return (
+              <div key={item.id} className='card-cnt'>
+                <Card item={item} />
+              </div>
+            );
           })}
       </div>
     </>
