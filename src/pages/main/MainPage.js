@@ -6,7 +6,7 @@ const MainPage = () => {
     <>
       <div className='mainpage-body'>
         <div className='navbar'>
-          <p className='nav-heading'>Movies App</p>
+          <p className='nav-heading'>flickS</p>
         </div>
         <div className='data-container'>
           <Outlet />

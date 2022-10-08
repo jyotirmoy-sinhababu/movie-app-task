@@ -1,6 +1,11 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const CardData = ({ item }) => {
+  const handleClick = () => {
+    localStorage.setItem('id', `${item.id}`);
+    navigate('/details');
+  };
+  const navigate = useNavigate();
   return (
     <div className='card-data-cnt' key={item.id}>
       <div className='card-img-cnt'>
@@ -17,16 +22,21 @@ const CardData = ({ item }) => {
       </p>
 
       <p className='card-txt'>
-        <strong>Vote Average: </strong>
+        <strong>Rating: </strong>
         {item.vote_average}
       </p>
       <div>
-        <NavLink
-          style={{ color: 'rgb(222, 143, 24)', textDecoration: 'none' }}
-          to='/details'
+        <button
+          onClick={handleClick}
+          style={{
+            background: 'transparent',
+            color: 'rgb(222, 143, 24)',
+            textDecoration: 'none',
+            border: 'none',
+          }}
         >
           Details
-        </NavLink>
+        </button>
       </div>
     </div>
   );

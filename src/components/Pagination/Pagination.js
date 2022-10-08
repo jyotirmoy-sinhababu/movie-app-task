@@ -14,11 +14,16 @@ const Pagination = ({ pagination }) => {
     width: '40px',
     aspectRatio: '1 / 1',
   };
+
   return (
     <div
       style={{
         display: 'flex',
-        gap: '0.5rem',
+        justifyContent: 'center',
+        gap: '1rem',
+        width: '100%',
+        maxWidth: '1200px',
+        padding: '50px 0',
       }}
     >
       <button style={btnStyle} onClick={pagination.first}>
@@ -72,7 +77,7 @@ const Pagination = ({ pagination }) => {
           />
         </svg>
       </button>
-      <button style={btnStyle} onClick={pagination.last}>
+      <button style={btnStyle} onClick={() => pagination.last()}>
         <svg
           style={imgStyle}
           xmlns='http://www.w3.org/2000/svg'

@@ -10,13 +10,14 @@ import usePagination from '../utils';
 import './card.css';
 
 const Card = ({ item }) => {
+  const [id, setId] = useState('');
   const [data, setData] = useState('');
   const [searchInput, setSearchInput] = useState('');
 
   const [searchList, setSearchList] = useState('');
   const [count, setCount] = useState(1);
 
-  const [lastPage, setLastPage] = useState('');
+  const [lastPage, setLastPage] = useState(99);
 
   const pagination = usePagination(count, setCount, lastPage);
 
@@ -45,10 +46,22 @@ const Card = ({ item }) => {
         .get(`https://movie-task.vercel.app/api/popular?page=${count}`)
         .then((res) => {
           setData(res.data);
-          setLastPage(res.data.total_pages);
-          console.log(res.data);
+
+          // setId(res.data.results.id);
+          console.log();
         });
   }, [count]);
+
+  useEffect(() => {
+    if (data) {
+      const sorted = [...data?.data?.results].sort((a, b) => {
+        const data1 = a.release_date.replaceAll('-', '');
+        const data2 = b.release_date.replaceAll('-', '');
+        return +data2 - +data1;
+      });
+      console.log(sorted);
+    }
+  }, [data]);
 
   console.log(searchList);
 
@@ -87,9 +100,10 @@ const Card = ({ item }) => {
               return <CardData item={item} />;
             })}
       </div>
-      <div>
-        <Pagination pagination={pagination} />
+      <div className='card-pagination'>
+        <Pagination pagination={pagination} lastPage={lastPage} />
       </div>
+      <div style={{ height: '100px' }}></div>
     </div>
   );
 };
