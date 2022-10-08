@@ -1,11 +1,20 @@
-.card-cnt {
-  display: grid;
-  grid-template-columns: 250px 250px 250px;
-  grid-template-rows: auto;
-  grid-gap: 1rem;
-  background: #ede7f6;
-  padding: 1.5rem;
-  border-radius: 1rem;
-  justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  margin: 30px;
 }
+
+.nav-heading {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 2.2rem;
+}
+
+.data-container {
+  width: 100%;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+/* .search-bar{} */
